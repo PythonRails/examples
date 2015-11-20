@@ -13,13 +13,16 @@ class Index(object):
         """
         Show welcome page of the project.
         """
-        data = render_template('test.html')
+        data = render_template('index/index.html')
         return Response(data)
 
     def not_found(self, request):
         """
-        Handle all pages that doesn't have an action inside this controller.
+        Handle all requests that can't be handled by any controller.
 
-        You can open page '/index/something' or '/something' to see this page.
+        You can open page '/index/blabla' or '/blabla' to see this page.
         """
-        return Response("Handle all pages in the Index controller. Requested page: {}".format(request.path))
+        data = render_template('index/not_found.html', {
+            'requested_path': request.path,
+        })
+        return Response(data)
