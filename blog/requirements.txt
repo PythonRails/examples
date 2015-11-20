@@ -1,1 +1,1 @@
-webob
+jinja2
