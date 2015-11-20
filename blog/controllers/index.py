@@ -1,5 +1,5 @@
 from rails.response import Response
-from rails.views import View
+from rails.views import render_template
 
 
 class Index(object):
@@ -13,8 +13,8 @@ class Index(object):
         """
         Show welcome page of the project.
         """
-        data = View.render('test.html')
-        return Response("Website home page. " + data)
+        data = render_template('test.html')
+        return Response(data)
 
     def not_found(self, request):
         """
